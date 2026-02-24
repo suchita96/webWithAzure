@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: windows-latest
     permissions:
       contents: read #This is required for actions/checkout
@@ -62,5 +62,5 @@ jobs:
           app-name: 'reactai'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9B1C8F2E5B644A3B9C7D8F0E1A9E5F4 }}
-          package: ./build
+          package: .
           
