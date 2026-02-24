@@ -1,6 +1,26 @@
 {
   "routes": [
     {
+      "route": "/assets/*",
+      "serve": "/assets/*",
+      "statusCode": 200
+    },
+    {
+      "route": "/*.js",
+      "serve": "/*.js",
+      "statusCode": 200
+    },
+    {
+      "route": "/*.css",
+      "serve": "/*.css",
+      "statusCode": 200
+    },
+    {
+      "route": "*.svg",
+      "serve": "/*.svg",
+      "statusCode": 200
+    },
+    {
       "route": "/*",
       "serve": "/index.html",
       "statusCode": 200
@@ -8,9 +28,12 @@
   ],
   "mimeTypes": {
     ".json": "text/json",
-    ".wasm": "application/wasm"
+    ".wasm": "application/wasm",
+    ".js": "text/javascript",
+    ".css": "text/css"
   },
   "navigationFallback": {
     "rewrite": "/index.html"
-  }
+  },
+  "trailingSlash": "ignore"
 }

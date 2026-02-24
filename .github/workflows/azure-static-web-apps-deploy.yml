@@ -22,19 +22,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build application
         run: npm run build
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
-        with:
-          name: node-app
-          path: dist/
+      - name: Verify build output
+        run: |
+          ls -la dist/
+          ls -la dist/assets/
 
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
@@ -44,6 +43,8 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "dist"
+          api_location: ""
+          output_location: ""
           skip_app_build: true
           config_file_location: "."
 
