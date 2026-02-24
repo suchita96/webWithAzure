@@ -9,7 +9,7 @@ export default function Cart({ cartItems, onRemove, onUpdateQuantity, onClose })
   return (
     <div className="cart">
       <div className="cart-header">
-        <h2>Shopping Cart</h2>
+        <h2>Shopping Cart Items</h2>
         <button className="close-btn" onClick={onClose}>✕</button>
       </div>
 
